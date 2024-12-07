@@ -1,0 +1,150 @@
+// styles-maket3.scss
+
+$primary-color: #003366;
+$secondary-color: #00509e;
+$background-color: #e6f0ff;
+$white: #fff;
+$border-radius: 8px;
+$button-padding: 10px 20px;
+$font-size-lg: 24px;
+$font-size-md: 16px;
+$gap-size: 40px;
+$box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+
+// Міксини для зручності
+@mixin box-shadow($x, $y, $blur, $color) {
+  -webkit-box-shadow: $x $y $blur $color;
+  -moz-box-shadow: $x $y $blur $color;
+  box-shadow: $x $y $blur $color;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: $background-color;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: $primary-color;
+  color: $white;
+}
+
+.logo {
+  font-size: $font-size-lg;
+  font-weight: bold;
+}
+
+.register-btn {
+  background-color: $secondary-color;
+  color: $white;
+  border: none;
+  padding: $button-padding;
+  cursor: pointer;
+  font-size: $font-size-md;
+  border-radius: $border-radius;
+}
+
+.hero {
+  text-align: center;
+  padding: 40px;
+  background-color: $secondary-color;
+  color: $white;
+}
+
+.categories {
+  display: flex;
+  justify-content: space-around;
+  padding: 40px 20px;
+  background-color: $background-color;
+  gap: $gap-size;
+}
+
+.category {
+  background-color: $white;
+  padding: 20px;
+  border: 1px solid $primary-color;
+  width: 30%;
+  text-align: center;
+  min-height: 300px;
+  border-radius: $border-radius;
+  @include box-shadow(0, 4px, 6px, rgba(0, 0, 0, 0.1));
+}
+
+.guide {
+  text-align: center;
+  padding: 40px;
+  background-color: $background-color;
+  border-radius: $border-radius;
+}
+
+.steps {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border-radius: $border-radius;
+}
+
+.step {
+  background-color: $white;
+  border: 1px solid $primary-color;
+  width: 150px;
+  margin: 10px;
+  padding: 20px;
+  border-radius: $border-radius;
+  @include box-shadow(0, 4px, 6px, rgba(0, 0, 0, 0.1));
+}
+
+.footer-container {
+  background-color: $primary-color;
+  color: $white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-links ul {
+  list-style: none;
+}
+
+.footer-links a {
+  color: $white;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .categories {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .category {
+    width: 100%;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}

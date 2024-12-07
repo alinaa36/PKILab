@@ -1,3 +1,21 @@
+// styles.scss (SASS версія)
+
+// Змінні для кольорів та відступів
+$primary-color: #003366;
+$secondary-color: #00509e;
+$background-color: #e6f0ff;
+$white: #fff;
+$border-radius: 8px;
+$button-padding: 10px 20px;
+
+// Міксини для зручності
+@mixin box-shadow($x, $y, $blur, $color) {
+  -webkit-box-shadow: $x $y $blur $color;
+  -moz-box-shadow: $x $y $blur $color;
+  box-shadow: $x $y $blur $color;
+}
+
+// Основні стилі
 * {
   margin: 0;
   padding: 0;
@@ -9,15 +27,15 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: #e6f0ff;
+  background-color: $background-color;
 }
 
 header {
-  background-color: #003366;
-  color: #fff;
+  background-color: $primary-color;
+  color: $white;
   padding: 20px 0;
   text-align: center;
-  border-radius: 8px;
+  border-radius: $border-radius;
 }
 
 header .logo-container {
@@ -29,7 +47,7 @@ header .logo {
   width: 80px;
   height: auto;
   margin-right: 10px;
-  border-radius: 8px;
+  border-radius: $border-radius;
 }
 
 header .site-name {
@@ -52,26 +70,24 @@ header .search-bar input {
 
 nav {
   width: 15%;
-  background-color: #003366;
-  color: #fff;
+  background-color: $primary-color;
+  color: $white;
   padding: 15px;
-  border-radius: 8px;
+  border-radius: $border-radius;
   min-height: calc(100vh - 75px);
-  -webkit-box-shadow: 4px 0 6px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 4px 0 6px rgba(0, 0, 0, 0.1);
-  box-shadow: 4px 0 6px rgba(0, 0, 0, 0.1);
+  @include box-shadow(4px, 0, 6px, rgba(0, 0, 0, 0.1));
 }
 
 nav a {
   display: block;
   padding: 10px 0;
-  color: #fff;
+  color: $white;
   text-decoration: none;
 }
 
 nav a:hover {
-  background-color: rgb(0, 25.5, 51);
-  border-radius: 8px;
+  background-color: darken($primary-color, 10%);
+  border-radius: $border-radius;
 }
 
 main {
@@ -79,14 +95,12 @@ main {
 }
 
 .section {
-  background-color: #fff;
+  background-color: $white;
   margin-bottom: 20px;
   padding: 15px;
   border: 1px solid #ccc;
-  border-radius: 8px;
-  -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: $border-radius;
+  @include box-shadow(0, 4px, 6px, rgba(0, 0, 0, 0.1));
 }
 
 .section img {
@@ -94,7 +108,7 @@ main {
   height: 200px;
   object-fit: cover;
   margin-bottom: 10px;
-  border-radius: 8px;
+  border-radius: $border-radius;
 }
 
 .trends {
@@ -103,27 +117,25 @@ main {
 }
 
 .trends .trend {
-  background-color: #fff;
+  background-color: $white;
   margin-bottom: 10px;
   padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 8px;
-  -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: $border-radius;
+  @include box-shadow(0, 4px, 6px, rgba(0, 0, 0, 0.1));
 }
 
 .top-navigation {
   display: flex;
   justify-content: space-around;
-  background-color: #00509e;
-  color: #fff;
+  background-color: $secondary-color;
+  color: $white;
   padding: 10px 0;
   margin-bottom: 20px;
 }
 
 .top-navigation a {
-  color: #fff;
+  color: $white;
   text-decoration: none;
   font-weight: bold;
   border-radius: 5px;
@@ -131,44 +143,51 @@ main {
 }
 
 .top-navigation a:hover {
-  background-color: rgb(0, 54.1772151899, 107);
+  background-color: darken($secondary-color, 10%);
 }
 
+// Медіа запити для адаптивності
 @media (max-width: 768px) {
   .content-wrapper {
     flex-direction: column;
   }
+
   nav {
     width: 100%;
     padding: 10px;
   }
+
   main {
     width: 100%;
   }
+
   .trends {
     width: 100%;
     margin-top: 20px;
   }
+
   .top-navigation {
     flex-direction: column;
     align-items: center;
   }
+
   .top-navigation a {
     padding: 10px;
     width: 100%;
     text-align: center;
   }
 }
+
 @media (min-width: 1200px) {
   .content-wrapper {
     padding: 40px;
   }
+
   nav {
     padding: 20px;
   }
+
   .section {
     padding: 25px;
   }
 }
-
-/*# sourceMappingURL=styles5.css.map */
